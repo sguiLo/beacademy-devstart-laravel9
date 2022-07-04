@@ -1,5 +1,5 @@
 @extends('template.users')
-@section('title', 'Vsualizar Usuário')
+@section('title', $title)
 @section('body')
 
         <h1>Usuário {{ $user->name }}</h1>
@@ -20,7 +20,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ date('d/m/Y', strtotime($user->created_at)) }}</td>
-                        <td><a href=""class="btn btn-warning text-white">Editar</a>
+                        <td><a href="{{ route('users.edit', $user->id) }}"class="btn btn-warning text-white">Editar</a>
                             <a href=""class="btn btn-danger text-white">Deletar</a>    
                         </td>
                     </tr>
