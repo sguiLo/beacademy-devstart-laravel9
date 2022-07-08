@@ -38,8 +38,7 @@ class StoreUpdateUserFormRequest extends FormRequest
                 'max:12'
             ],
             'image' => [
-                'file',
-                'mimes:jpeg,png,jpg',
+                'mimes:jpeg,png,jpg,'
             ]
         ];
 

@@ -4,7 +4,7 @@
 
         <h1>Listagem de Usuários</h1>
             <hr>
-            <a href="{{ route('users.create') }}" class="btn btn-success">Novo Usuário</a>
+            <a href="{{ route('users.create') }}" class="btn btn-outline-dark">Novo Usuário</a>
 
                 <table class="table">
                     <thead class="text-center">
@@ -29,9 +29,12 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ date('d/m/Y', strtotime($user->created_at)) }}</td>
-                                <td><a href="{{ route('users.show', $user->id) }}"class="btn btn-info text-white">Visualizar</a></td>
+                                <td><a href="{{ route('users.show', $user->id) }}"class="btn btn-primary text-white">Visualizar</a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <div class="justify-content-center pagination">
+                {{ $users->links('pagination::bootstrap-4')}}
+                </div>
 @endsection
