@@ -28,7 +28,7 @@ class PostController extends Controller
 
     public function show($userId)
     {
-        if(!$user = $this->user->find($userId))
+        if (!$user = $this->user->find($userId))
             return redirect()->back();
 
         $posts = $user->posts()->get();
