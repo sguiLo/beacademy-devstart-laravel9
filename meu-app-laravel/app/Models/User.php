@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'image',
+        'is_admin',
         'password',
         'remember_token',
         'email_verified_at'
@@ -47,13 +48,13 @@ class User extends Authenticatable
 
     public function getUsers(string $search = null)
     {
-        $users = $this->where( function ($query) use($search){
-            if($search){
+        $users = $this->where(function ($query) use ($search) {
+            if ($search) {
                 $query->where('email', $search);
                 $query->orWhere('name', 'LIKE', "%{$search}%");
             }
         })
-        ->paginate(5);
+            ->paginate(5);
 
         return $users;
     }
@@ -67,5 +68,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Team::class);
     }
-
 }
